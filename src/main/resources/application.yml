@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+jwt:
+  secretKey: ecf1222c-88fd-47f3-988f-bdd78bade1ad
+
+spring:
+  r2dbc:
+    url: "r2dbc:pool:mysql://localhost:3306/apportion"
+    username: "root"
+    password: "Ama405188!2"
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      javax:
+        persistence:
+          schema-generation:
+            database:
+              action: create
+            create-database-schemas: true
+            create-source: "metadata"
+            drop-source: "metadata"
+            connection: "r2dbc:pool:mysql://localhost:3306/apportion"
+
+
+
+
+
+
