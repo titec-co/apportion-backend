@@ -2,6 +2,7 @@ package com.titec.apportion.controller.order;
 
 import com.titec.apportion.common.model.payment.PaymentType;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -16,6 +17,7 @@ public class OrderRegisterRequest {
     private Object allowableCards;
     private PaymentType paymentType; // additional info for each payment type should be send.
     private List<OrderShare> orderShares; // if is null from merchant share holders be created.
+    private LocalDateTime wageSettlementTime; // maximum value can be same as first OrderShare.settlementTime
 
     public String getOrderNumber() {
         return orderNumber;
@@ -89,6 +91,14 @@ public class OrderRegisterRequest {
         this.orderShares = orderShares;
     }
 
+    public LocalDateTime getWageSettlementTime() {
+        return wageSettlementTime;
+    }
+
+    public void setWageSettlementTime(LocalDateTime wageSettlementTime) {
+        this.wageSettlementTime = wageSettlementTime;
+    }
+
     public static class OrderShare {
 
         private UUID shareHolderCd;
@@ -98,6 +108,7 @@ public class OrderRegisterRequest {
         private Integer wagePercent;
         private Long wageFixValue;
         // this fields overwrite share holder values
+        private LocalDateTime settlementTime;
 
         public UUID getShareHolderCd() {
             return shareHolderCd;
@@ -139,5 +150,12 @@ public class OrderRegisterRequest {
             this.wageFixValue = wageFixValue;
         }
 
+        public LocalDateTime getSettlementTime() {
+            return settlementTime;
+        }
+
+        public void setSettlementTime(LocalDateTime settlementTime) {
+            this.settlementTime = settlementTime;
+        }
     }
 }

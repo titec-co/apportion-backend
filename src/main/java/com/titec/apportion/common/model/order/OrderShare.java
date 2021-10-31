@@ -4,10 +4,10 @@ import com.titec.apportion.common.model.AbstractEntity;
 import com.titec.apportion.common.model.merchant.Merchant;
 import com.titec.apportion.common.model.merchant.ShareHolder;
 
-public class OrderShare extends AbstractEntity {
+import java.time.LocalDateTime;
 
-    private Order order;
-    private Merchant merchant; //redundant: from order can be catch
+public class OrderShare extends OrderSettling {
+
     private ShareHolder shareHolder;
     // this fields can overwrite share holder values
     private Integer sharePercent;
@@ -18,23 +18,6 @@ public class OrderShare extends AbstractEntity {
     private Boolean overwritten;
     private Long finalShareValue;
     private Long finalWageValue;
-    private SettlementStatus status;
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
-    public Merchant getMerchant() {
-        return merchant;
-    }
-
-    public void setMerchant(Merchant merchant) {
-        this.merchant = merchant;
-    }
 
     public ShareHolder getShareHolder() {
         return shareHolder;
@@ -100,11 +83,4 @@ public class OrderShare extends AbstractEntity {
         this.finalWageValue = finalWageValue;
     }
 
-    public SettlementStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(SettlementStatus status) {
-        this.status = status;
-    }
 }

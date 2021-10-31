@@ -20,7 +20,11 @@ public class Merchant extends AbstractEntity {
     private MerchantGrade grade;
     private Boolean factorPreviewEnable;
     private Boolean allowCustomOrderShareHolder;
+    private Boolean allowCustomOrderSettlementTime;
+    private Boolean allowCustomOrderWageSettlementTime;
     private Object settlementScheduling;
+    private Boolean calculatePaymentFromPayableAmount;
+    private Boolean isSettlementNeedConfirm;
     private List<ShareHolder> shareHolders;
 
     public String getTitle() {
@@ -103,12 +107,44 @@ public class Merchant extends AbstractEntity {
         this.allowCustomOrderShareHolder = allowCustomOrderShareHolder;
     }
 
+    public Boolean getAllowCustomOrderSettlementTime() {
+        return allowCustomOrderSettlementTime;
+    }
+
+    public void setAllowCustomOrderSettlementTime(Boolean allowCustomOrderSettlementTime) {
+        this.allowCustomOrderSettlementTime = allowCustomOrderSettlementTime;
+    }
+
+    public Boolean getAllowCustomOrderWageSettlementTime() {
+        return allowCustomOrderWageSettlementTime;
+    }
+
+    public void setAllowCustomOrderWageSettlementTime(Boolean allowCustomOrderWageSettlementTime) {
+        this.allowCustomOrderWageSettlementTime = allowCustomOrderWageSettlementTime;
+    }
+
     public Object getSettlementScheduling() {
         return settlementScheduling;
     }
 
     public void setSettlementScheduling(Object settlementScheduling) {
         this.settlementScheduling = settlementScheduling;
+    }
+
+    public Boolean getCalculatePaymentFromPayableAmount() {
+        return calculatePaymentFromPayableAmount;
+    }
+
+    public void setCalculatePaymentFromPayableAmount(Boolean calculatePaymentFromPayableAmount) {
+        this.calculatePaymentFromPayableAmount = calculatePaymentFromPayableAmount;
+    }
+
+    public Boolean getSettlementNeedConfirm() {
+        return isSettlementNeedConfirm;
+    }
+
+    public void setSettlementNeedConfirm(Boolean settlementNeedConfirm) {
+        isSettlementNeedConfirm = settlementNeedConfirm;
     }
 
     public List<ShareHolder> getShareHolders() {

@@ -3,33 +3,18 @@ package com.titec.apportion.common.model.order;
 import com.titec.apportion.common.model.AbstractEntity;
 import com.titec.apportion.common.model.merchant.Merchant;
 
-public class OrderWage extends AbstractEntity {
+import java.time.LocalDateTime;
 
-    private Order order;
-    private Merchant merchant; //redundant: from order can be catch
+public class OrderWage extends OrderSettling {
+
     private Wage wage;
     // this fields can overwrite share holder values
 //    private Integer wagePercent;
 //    private Long wageFixValue;
     // this fields overwrite share holder values
     private Long finalWageValue;
+    private LocalDateTime settlementTime;
     private SettlementStatus status;
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
-    public Merchant getMerchant() {
-        return merchant;
-    }
-
-    public void setMerchant(Merchant merchant) {
-        this.merchant = merchant;
-    }
 
     public Wage getWage() {
         return wage;
@@ -61,6 +46,14 @@ public class OrderWage extends AbstractEntity {
 
     public void setFinalWageValue(Long finalWageValue) {
         this.finalWageValue = finalWageValue;
+    }
+
+    public LocalDateTime getSettlementTime() {
+        return settlementTime;
+    }
+
+    public void setSettlementTime(LocalDateTime settlementTime) {
+        this.settlementTime = settlementTime;
     }
 
     public SettlementStatus getStatus() {
